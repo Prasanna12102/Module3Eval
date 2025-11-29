@@ -74,6 +74,29 @@
                             availability:avl
                         };
                         fleet.push(vehicle);
+                        regNoInp.value="";
+                        catInp.value="";
+                        driverInp.value="";
+                        isAvailInp.value="Available";
+                         
+                        renderCards();
+                        function renderCards(){
+                            cardsArea.innerHTML="";
+
+                            fleet.forEach(function (v){
+                                const card=document.createElement("div");
+                                card.className="card";
+
+                                card.innerHTML=`<img src="${imgSrc}" alt="vehicle">
+                                <p><b>"Reg No:"</b> ${v.regNo} </p>
+                                <p><b>"Category:"</b> ${v.category} </p>
+                                <p><b>"Driver:"</b> ${v.driver} </p>
+                                <p><b>Status:</b>${v.availability}</p>
+                                `;
+                                cardsArea.appendChild(card);
+
+                            });
+                        }
                     })
 
 
