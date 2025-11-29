@@ -24,11 +24,11 @@
 
                     </select>
                     <button id="clearFilter">Clear Filter</button>
-                    
+
                 </span>
             </div>
             <div class="container">
-                <div class="sidebar"></div>
+                <div class="sidebar">
                 <h3>Add Fleet</h3>
 
                 <label>Reg No of Vehicle:
@@ -63,8 +63,7 @@
                 </label> 
                 <br></br>
 
-                <button id="addFleetBtn">Add Fleet</button>
-                <!-- </div> -->
+                <button id="addFleetBtn">Add Fleet</button></div>
 
                 <div class="main" id="cardsArea"></div>
                 </div>
@@ -77,7 +76,11 @@
                     const isAvailInp=document.getElementById("isAvail");
                     const addBtn=document.getElementById("addFleetBtn");
                     const cardsArea=document.getElementById("CardsArea");
-                    const imgSrc="vehicles.png";
+                    const imgSrc="./vehicles.png";
+
+                    const filterCategory=document.getElementById("filterCategory");
+                    const filterAvail=document.getElementById("filterAvail");
+                    const clearFilterBtn=document.getElementById("clearfilter");
 
                     addBtn.addEventListener("click",function(){
                         const reg=regNoInp.value.trim();
@@ -153,6 +156,14 @@
 
                             });
                         }
+                        filterCategory.addEventListener("change",renderCards);
+                        filterAvail.addEventListener("change",renderCards);
+
+                        clearFilterBtn.addEventListener("click",function(){
+                            filterCategory.value="";
+                            filterAvail.value="";
+                            renderCards();
+                        })
                     })
 
 
