@@ -5,7 +5,27 @@
     <head>
         <body>
             <div class="navbar">
-                Mini fleet management
+                <span>Mini fleet management</span>
+                <span>
+                    <select id="filterCategory">
+                        <option value="">All Category</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Car">Car</option>
+                        <option value="Truck">Truck</option>
+                        <option value="Bus">Bus</option>
+
+                    </select>
+
+                    <select id="filterAvail">
+                        <option value="">All Availability</option>
+                        <option value="">Available</option>
+                        <option value="">Unavailable</option>
+
+
+                    </select>
+                    <button id="clearFilter">Clear Filter</button>
+                    
+                </span>
             </div>
             <div class="container">
                 <div class="sidebar"></div>
