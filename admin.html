@@ -88,11 +88,41 @@
                                 card.className="card";
 
                                 card.innerHTML=`<img src="${imgSrc}" alt="vehicle">
-                                <p><b>"Reg No:"</b> ${v.regNo} </p>
-                                <p><b>"Category:"</b> ${v.category} </p>
-                                <p><b>"Driver:"</b> ${v.driver} </p>
+                                <p><b>Reg No:</b> ${v.regNo} </p>
+                                <p><b>Category:</b> ${v.category} </p>
+                                <p><b>Driver:</b> ${v.driver} </p>
                                 <p><b>Status:</b>${v.availability}</p>
+
+                                <button class="updateBtn">Update Driver</button>
+                                <button class="changeBtn">Change Availability</button>
+                                <button class="deleteBtn">Delete Vehicle</button>
+
                                 `;
+
+                                //1 update driver button
+                                const updateBtn=card.querySelector(".updateBtn");
+                                updateBtn.addEventListener("click",function(){
+                                    const newName=prompt("Enter new driver name:",v.driver);
+                                    if(newName&newName.trim()!==""){
+                                        v.driver=newName.trim();
+                                        renderCards();
+                                    }
+                                });
+
+                                //2 change availability
+                                const changeBtn=card.querySelector(".changeBtn");
+                                changeBtn.addEventListener("click",function(){
+                                    if(v.availability==="Available"){
+                                        v.availability="Unavailabile";
+                                    }
+                                    else{
+                                        v.availability="Available";
+                                    }
+                                    renderCards();
+                                });
+
+                                //3 Delete vehicle button
+                                
                                 cardsArea.appendChild(card);
 
                             });
